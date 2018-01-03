@@ -63,3 +63,4 @@ echo "sudo make -j4" >> run.sh
 sudo chmod +x run.sh
 sudo ./run.sh > log
 
+
