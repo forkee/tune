@@ -42,25 +42,40 @@ sudo apt-get install -y curl g++ git-core pkg-config autoconf libtool automake f
 Just copy below and paste it your linux terminal.
 
 echo "cd depends" > run.sh
+
 echo "sudo make -j4 HOST=x86_64-pc-linux-gnu" >> run.sh
+
 echo "cd .." >> run.sh
+
 echo "sudo ./autogen.sh" >> run.sh
+
 echo "sudo ./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu" >> run.sh
+
 echo "sudo make -j4" >> run.sh
+
 sudo chmod +x run.sh
+
 sudo ./run.sh > log
+
 
 3) For windows (on linux)
 
 Just copy below and paste it your linux terminal.
 
 echo "cd depends" > run.sh
+
 echo "sudo make -j4 HOST=i686-w64-mingw32" >> run.sh
+
 echo "cd .." >> run.sh
+
 echo "sudo ./autogen.sh" >> run.sh
+
 echo "sudo ./configure --prefix=`pwd`/depends/i686-w64-mingw32" >> run.sh
+
 echo "sudo make -j4" >> run.sh
+
 sudo chmod +x run.sh
+
 sudo ./run.sh > log
 
 
