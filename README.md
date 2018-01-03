@@ -49,7 +49,7 @@ echo "cd .." >> run.sh
 
 echo "sudo ./autogen.sh" >> run.sh
 
-echo "sudo ./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu" >> run.sh
+echo "sudo ./configure --prefix=\`pwd\`/depends/x86_64-pc-linux-gnu" >> run.sh
 
 echo "sudo make -j4" >> run.sh
 
@@ -70,7 +70,7 @@ echo "cd .." >> run.sh
 
 echo "sudo ./autogen.sh" >> run.sh
 
-echo "sudo ./configure --prefix=`pwd`/depends/i686-w64-mingw32" >> run.sh
+echo "sudo ./configure --prefix=\`pwd\`/depends/i686-w64-mingw32" >> run.sh
 
 echo "sudo make -j4" >> run.sh
 
