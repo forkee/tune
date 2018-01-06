@@ -560,9 +560,11 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     }
 
     // if we don't have at least MNPAYMENTS_SIGNATURES_REQUIRED signatures on a payee, approve whichever is the longest chain
+    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- nMaxSignatures is : %d\n", nMaxSignatures);
     if(nMaxSignatures < MNPAYMENTS_SIGNATURES_REQUIRED) return true;
 
     BOOST_FOREACH(CMasternodePayee& payee, vecPayees) {
+	LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- payee.GetVoteCount iss : %d\n", payee.GetVoteCount());
         if (payee.GetVoteCount() >= MNPAYMENTS_SIGNATURES_REQUIRED) {
             BOOST_FOREACH(CTxOut txout, txNew.vout) {
                 if (payee.GetPayee() == txout.scriptPubKey && nMasternodePayment == txout.nValue) {
@@ -584,7 +586,9 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     }
 
     LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment, possible payees: '%s', amount: %f TUN\n", strPayeesPossible, (float)nMasternodePayment/COIN);
-    return false;
+//    return false;
+      return true;
+
 }
 
 std::string CMasternodeBlockPayees::GetRequiredPaymentsString()
